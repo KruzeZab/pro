@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="card mx-auto" style="width: 24rem;">
+      <div class="card-header bg-dark text-white">
+        Currently Playing
+      </div>
+      <div class="card-body text-center bg-dark text-white">
+        <img src="{{song.image.url}}" width="200px" height="200px" class="mb-2" alt="" />
+        <h5 class="card-title">{{ song.title }}</h5>
+        <p class="card-text">{{ song.artist }}</p>
+        
+        <audio controls>
+          <source src="{{song.audio_file.url}}" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 ">
+    <h3>Recommended Songs</h3>
+    <ol class="list-group list-group-numbered text-white">
+      <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Stairway To Heaven</div>
+          Led Zeppelin
+        </div>
+      </li class="bg-dark text-white">
+      <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Subheading</div>
+          Content for list item
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Subheading</div>
+          Content for list item
+        </div>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">Subheading</div>
+          Content for list item
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="container mt-5 ">
+    <h3>All Songs</h3>
+    <ol class="list-group list-group-numbered text-white">
+      {% for single in songs %}
+      <li class="list-group-item d-flex justify-content-between align-items-start bg-dark text-white">
+        <div class="ms-2 me-auto">
+          <div class="fw-bold">{{ single.title }}</div>
+          {{ single.artist }}
+        </div>
+        </li>
+      {% endfor %}
+      
+    </ol>
+  </div>
+{% endblock %}

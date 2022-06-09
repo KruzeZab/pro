@@ -1,0 +1,12 @@
+{% extends 'admin/base.html' %} 
+{% load static %} 
+{% block branding %}
+
+<a href="{% url 'admin:index' %}">
+<h1 id="head" style="color: white">
+  Blog System</a>
+</h1>
+</a>
+{% endblock %} {% block extrastyle %}
+<link rel="stylesheet" href="{% static 'admin.css' %}" />
+{% endblock %}
